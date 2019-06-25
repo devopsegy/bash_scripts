@@ -1,11 +1,7 @@
 #!bin/bash
  
-# description: glassfish start stop restart
-# processname: glassfish
-# chkconfig: 2345 20 80
- 
-GLASSFISH_HOME=/u01/app/glassfish3
-GLASSFISH_USER=oracle
+GLASSFISH_HOME=/home/glassfish/glassfish3
+GLASSFISH_USER=glassfish
 RETVAL=0
  
 case "$1" in
