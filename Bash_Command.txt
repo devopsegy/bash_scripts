@@ -33,5 +33,8 @@ find / -perm +4000
 
 
  # kill every process using a certain file (or filesystem for a quick umount)
-
  fuser -k file 
+
+# if you want get random numbers from 10 to 900
+shuf -i 10-90
+shuf -n 5 lab.txt
