@@ -1,0 +1,23 @@
+# nl will sort the lines with number # grep -w 4 will grep line 4 # awk -F will remove the , from the line .
+nl lab.txt | grep -w 4 |  awk '{print $2}' | awk -F ',' '{print $2}'
+
+# How to find value and replace it with another value .
+find -type f -exec grep -l 'kimo.com' {} \;|while read n ;do sed -i 's/kimo.com/kimo.net/g' $n ;done
+
+# this ionice will be last priority .
+ionice -n 7 nice -n 19 mysqlcheck -Ao --auto-repair ;  ionice -n 7 nice -n 19 mysqlcheck -Ao --auto-repair 
+
+# clear log files 
+cd /var/log/apache/ && find -type f -iname "*log" | while read f ; do echo>$f ; done
+
+# that will find all files has 2 characters
+find -name "??"
+
+
+# change permission for files and folders  
+find . -type d -exec chmod 755 {} \;
+find . -type f -exec chmod 644 {} \;
+
+
+# Grep open connection on port 80, And count how many connection are opens from which IP .
+netstat -an | grep :80 | awk '{ print $5 }' | awk -F: '{ print $1 }' | sort | uniq -c | sort -n
