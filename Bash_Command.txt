@@ -8,7 +8,7 @@ find -type f -exec grep -l 'kimo.com' {} \;|while read n ;do sed -i 's/kimo.com/
 ionice -n 7 nice -n 19 mysqlcheck -Ao --auto-repair ;  ionice -n 7 nice -n 19 mysqlcheck -Ao --auto-repair 
 
 # clear log files 
-cd /var/log/apache/ && find -type f -iname "*log" | while read f ; do echo>$f ; done
+cd /var/log/apache/ && find -type f -iname "*log" | while read f ; do echo>$f ; d#one
 
 # that will find all files has 2 characters
 find -name "??"
@@ -21,3 +21,17 @@ find . -type f -exec chmod 644 {} \;
 
 # Grep open connection on port 80, And count how many connection are opens from which IP .
 netstat -an | grep :80 | awk '{ print $5 }' | awk -F: '{ print $1 }' | sort | uniq -c | sort -n
+
+
+# Find size more than 1000 MB , you can change to G OR k
+find -size +1000M
+find -size +10G
+find -size +100000K
+
+# find files that have permission 4000 
+find / -perm +4000
+
+
+ # kill every process using a certain file (or filesystem for a quick umount)
+
+ fuser -k file 
