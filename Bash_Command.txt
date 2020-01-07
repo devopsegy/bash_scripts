@@ -38,3 +38,12 @@ find / -perm +4000
 # if you want get random numbers from 10 to 900
 shuf -i 10-90
 shuf -n 5 lab.txt
+ 
+# Using rsync  
+rsync -av — progress -e “ssh -i /path_to/your_public_key.pem/” /absolute_path_to/local_files/ remote_server_root@public_DNS:/absolut_path/remote_directory_destination
+
+
+rsync -avz --rsync-path="sudo rsync" ~/web-files/etc/ ec2-user@$INST_NAME:/etc/
+rsync -azvh -e ssh /my/src/directory/ root@123.123.123.123:/my/dest/directory
+rsync -avz --delete --backup --backup-dir="backup_$(date +\\%Y-\\%m-\\%d)" /src/path/ /dest/path
+
